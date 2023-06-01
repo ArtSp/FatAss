@@ -1,4 +1,4 @@
-package com.asp.fatass.core.domain.language
+package com.asp.fatass.core.domain
 
 enum class Language(
     val langCode: String,
