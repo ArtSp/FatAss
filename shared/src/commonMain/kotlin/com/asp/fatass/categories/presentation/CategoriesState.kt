@@ -11,6 +11,6 @@ data class CategoriesState (
     val isLoading: Set<Content> = setOf()
 ) {
     enum class Content {
-        SECTIONS
+        CATEGORIES
     }
 }
