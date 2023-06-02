@@ -1,4 +1,4 @@
-package com.asp.fatass.sections.presentation
+package com.asp.fatass.categories.presentation
 
 import com.asp.fatass.core.domain.util.toCommonStateFlow
 import com.asp.fatass.core.presentation.AppViewModel
@@ -9,22 +9,22 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 
-class SectionsViewModel(
+class CategoriesViewModel(
     coroutineScope: CoroutineScope?
-): AppViewModel<SectionsState, SectionsEvent>(coroutineScope) {
-
-    private val _state = MutableStateFlow(SectionsState())
-    val state = _state
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), SectionsState())
-        .toCommonStateFlow()
+): AppViewModel<CategoriesState, CategoriesEvent>(coroutineScope) {
 
     private var getSectionsJob: Job? = null
 
+    private val _state = MutableStateFlow(CategoriesState())
+    override val state = _state
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), CategoriesState())
+        .toCommonStateFlow()
+
     override fun onEvent(
-        event: SectionsEvent
+        event: CategoriesEvent
     ) {
         when (event) {
-            is SectionsEvent.OpenLanguageDropDown -> {
+            is CategoriesEvent.OpenLanguageDropDown -> {
                 _state.update {
                     it.copy(
                         isChoosingLanguage = true
@@ -32,7 +32,7 @@ class SectionsViewModel(
                 }
             }
 
-            is SectionsEvent.CloseLanguageDropDown -> {
+            is CategoriesEvent.CloseLanguageDropDown -> {
                 _state.update {
                     it.copy(
                         isChoosingLanguage = false
@@ -40,14 +40,14 @@ class SectionsViewModel(
                 }
             }
 
-            is SectionsEvent.ChooseLanguage -> {
+            is CategoriesEvent.ChooseLanguage -> {
                 TODO("Handle selected language ${event.language.language.langName}")
             }
 
-            is SectionsEvent.ChooseSection -> {
+            is CategoriesEvent.ChooseSection -> {
                 _state.update {
                     it.copy(
-                        selectedSection = event.section
+                        selectedCategory = event.section
                     )
                 }
             }
@@ -55,7 +55,7 @@ class SectionsViewModel(
     }
 
     private fun getSections(
-        state: SectionsState
+        state: CategoriesState
     ) {
 
     }

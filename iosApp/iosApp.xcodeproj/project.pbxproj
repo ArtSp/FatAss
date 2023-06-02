@@ -12,6 +12,8 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		609997292A286B1C00AD2AEE /* MPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 609997282A286B1C00AD2AEE /* MPFoundation */; };
 		6099972F2A286DED00AD2AEE /* MPSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6099972E2A286DED00AD2AEE /* MPSwiftUI */; };
+		609997342A29DCAC00AD2AEE /* IOSSectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609997332A29DCAC00AD2AEE /* IOSSectionsViewModel.swift */; };
+		609997372A29DCDC00AD2AEE /* SectionsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609997362A29DCDC00AD2AEE /* SectionsScreen.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +34,8 @@
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
+		609997332A29DCAC00AD2AEE /* IOSSectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSSectionsViewModel.swift; sourceTree = "<group>"; };
+		609997362A29DCDC00AD2AEE /* SectionsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsScreen.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,6 +62,48 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		609997302A29DC5A00AD2AEE /* res */ = {
+			isa = PBXGroup;
+			children = (
+				058557BA273AAA24004C7B11 /* Assets.xcassets */,
+			);
+			path = res;
+			sourceTree = "<group>";
+		};
+		609997312A29DC6900AD2AEE /* core */ = {
+			isa = PBXGroup;
+			children = (
+				609997382A29DDCA00AD2AEE /* presentation */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		609997322A29DC8600AD2AEE /* sections */ = {
+			isa = PBXGroup;
+			children = (
+				609997352A29DCBA00AD2AEE /* presentation */,
+			);
+			path = sections;
+			sourceTree = "<group>";
+		};
+		609997352A29DCBA00AD2AEE /* presentation */ = {
+			isa = PBXGroup;
+			children = (
+				609997332A29DCAC00AD2AEE /* IOSSectionsViewModel.swift */,
+				609997362A29DCDC00AD2AEE /* SectionsScreen.swift */,
+			);
+			path = presentation;
+			sourceTree = "<group>";
+		};
+		609997382A29DDCA00AD2AEE /* presentation */ = {
+			isa = PBXGroup;
+			children = (
+				2152FB032600AC8F00CF470E /* iOSApp.swift */,
+				7555FF82242A565900829871 /* ContentView.swift */,
+			);
+			path = presentation;
+			sourceTree = "<group>";
+		};
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
@@ -78,9 +124,9 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
-				2152FB032600AC8F00CF470E /* iOSApp.swift */,
-				058557BA273AAA24004C7B11 /* Assets.xcassets */,
-				7555FF82242A565900829871 /* ContentView.swift */,
+				609997312A29DC6900AD2AEE /* core */,
+				609997322A29DC8600AD2AEE /* sections */,
+				609997302A29DC5A00AD2AEE /* res */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 			);
@@ -195,7 +241,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				609997342A29DCAC00AD2AEE /* IOSSectionsViewModel.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				609997372A29DCDC00AD2AEE /* SectionsScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

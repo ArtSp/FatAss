@@ -1,13 +1,13 @@
-package com.asp.fatass.sections.presentation
+package com.asp.fatass.categories.presentation
 
 import com.asp.fatass.core.domain.util.error.AppError
-import com.asp.fatass.sections.domain.Section
+import com.asp.fatass.categories.domain.CategoryItem
 
-data class SectionsState (
+data class CategoriesState (
     val isChoosingLanguage: Boolean = false,
     val error: AppError? = null,
-    val sections: List<Section>? = null,
-    val selectedSection: Section? = null,
+    val categories: List<CategoryItem>? = null,
+    val selectedCategory: CategoryItem? = null,
     val isLoading: Set<Content> = setOf()
 ) {
     enum class Content {
