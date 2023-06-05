@@ -2,9 +2,9 @@ import SwiftUI
 import MPSwiftUI
 
 struct ContentView: View {
-
+    
 	var body: some View {
-		Text("TODO")
+        CategoriesScreen(productsUseCase: AppModule().productsUseCase)
 	}
 }
 

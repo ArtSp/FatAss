@@ -1,7 +1,7 @@
 package com.asp.fatass.categories.presentation
 
 import com.asp.fatass.core.domain.util.error.AppError
-import com.asp.fatass.categories.domain.CategoryItem
+import com.asp.fatass.core.domain.products.models.CategoryItem
 
 data class CategoriesState (
     val isChoosingLanguage: Boolean = false,

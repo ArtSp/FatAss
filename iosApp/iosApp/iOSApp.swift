@@ -1,4 +1,5 @@
 import SwiftUI
+@_exported import MPFoundation
 @_exported import shared
 
 @main

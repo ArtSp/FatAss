@@ -11,6 +11,16 @@ kotlin {
     iosArm64()
     iosSimulatorArm64()
 
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach {
+        it.binaries.framework {
+            baseName = "shared"
+        }
+    }
+
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -72,7 +82,7 @@ android {
 }
 
 sqldelight {
-    database("FatAssDatabase") {
+    database("ProductsDatabase") {
         packageName = "com.asp.fatass.database"
         sourceFolders = listOf("sqldelight")
     }
