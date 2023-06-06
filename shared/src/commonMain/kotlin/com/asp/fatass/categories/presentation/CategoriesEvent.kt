@@ -4,10 +4,9 @@ import com.asp.fatass.core.presentation.UiLanguage
 import com.asp.fatass.core.domain.products.models.CategoryItem
 
 sealed class CategoriesEvent {
-    object OpenLanguageDropDown: CategoriesEvent()
-    object CloseLanguageDropDown: CategoriesEvent()
+    data class OpenLanguageDropDown(val value: Boolean): CategoriesEvent()
     data class ChooseLanguage(val language: UiLanguage): CategoriesEvent()
-    data class ChooseSection(val section: CategoryItem): CategoriesEvent()
+    data class ChooseCategory(val category: CategoryItem?): CategoriesEvent()
     object LoadContent: CategoriesEvent()
     object ClearError: CategoriesEvent()
 }

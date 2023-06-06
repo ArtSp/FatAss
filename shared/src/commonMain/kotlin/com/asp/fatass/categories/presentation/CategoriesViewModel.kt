@@ -33,15 +33,7 @@ class CategoriesViewModel(
             is CategoriesEvent.OpenLanguageDropDown -> {
                 _state.update {
                     it.copy(
-                        isChoosingLanguage = true
-                    )
-                }
-            }
-
-            is CategoriesEvent.CloseLanguageDropDown -> {
-                _state.update {
-                    it.copy(
-                        isChoosingLanguage = false
+                        isChoosingLanguage = event.value
                     )
                 }
             }
@@ -50,10 +42,10 @@ class CategoriesViewModel(
                 TODO("Handle selected language ${event.language.language.langName}")
             }
 
-            is CategoriesEvent.ChooseSection -> {
+            is CategoriesEvent.ChooseCategory -> {
                 _state.update {
                     it.copy(
-                        selectedCategory = event.section
+                        selectedCategory = event.category
                     )
                 }
             }

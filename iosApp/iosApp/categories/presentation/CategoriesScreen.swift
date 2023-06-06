@@ -6,7 +6,6 @@ struct CategoriesScreen: View {
     
     @ObservedObject var viewModel: ViewModel
     @Environment(\.appModule) private var appModule
-    @State private var showsCatgory: CategoryItem?
     
     init(
         productsUseCase: ProductsUseCase
@@ -19,7 +18,7 @@ struct CategoriesScreen: View {
     ) -> some View {
         VStack(alignment: .leading) {
             ForEach(categories) { it in
-                Button(action: { showsCatgory = it }) {
+                Button(action: { viewModel.onEvent(event: .ChooseCategory(category: it)) }) {
                     HStack {
                         Text(it.name)
                         Spacer()
@@ -53,16 +52,21 @@ struct CategoriesScreen: View {
         .navigationTitle("categories.navigation.title")
         .alert(isPresented: Binding(
             get: { !viewModel.error.isNil },
-            set: { _ in viewModel.onEvent(event: CategoriesEvent.ClearError()) })
+            set: { _ in viewModel.onEvent(event: .ClearError()) })
         ) {
             Alert(title: Text(viewModel.error?.message ?? ""))
         }
-        .navigation(item: $showsCatgory) { category in
-            ProductsScreen(category: category, productsUseCase: appModule.productsUseCase)
+        .navigation(isActive: Binding(
+            get: { !viewModel.selectedCategory.isNil },
+            set: { _ in viewModel.onEvent(event: .ChooseCategory(category: nil)) }
+        )) {
+            Unwrap(viewModel.selectedCategory) { category in
+                ProductsScreen(category: category, productsUseCase: appModule.productsUseCase)
+            }
         }
         .onAppear {
             viewModel.startObserving()
-            viewModel.onEvent(event: CategoriesEvent.LoadContent())
+            viewModel.onEvent(event: .LoadContent())
         }
         .onDisappear {
             viewModel.dispose()
