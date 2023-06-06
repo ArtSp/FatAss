@@ -100,7 +100,12 @@ struct LanguageDropDown: View {
                 }
             }
         } label: {
-            HStack {
+            Unwrap(UIImage(named: language.language.langName.lowercased())) { uiImage in
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .frame(width: 22, height: 22)
+                    .shadow(radius: 1)
+            } fallbackContent: {
                 Text(language.language.langName)
                     .foregroundColor(.accentViolet)
             }
@@ -117,13 +122,14 @@ struct LanguageDropDownItem: View {
                 Unwrap(UIImage(named: language.imageName.lowercased())) { image in
                     Image(uiImage: image)
                         .resizable()
-                        .frame(width: 40, height: 40)
+                        .frame(width: 22, height: 22)
                         .padding(.trailing, 5)
                 }
                 Text(language.language.langName)
                     .foregroundColor(.textBlack)
             }
         }
+        .buttonStyle(.plain)
     }
 }
 
