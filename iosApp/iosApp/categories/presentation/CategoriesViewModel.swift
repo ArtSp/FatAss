@@ -2,7 +2,7 @@
 import Foundation
 
 extension CategoriesScreen {
-    class ViewModel: ObservableObject {
+    class ViewModel: StatefulViewModel {
         
         private var handle: DisposableHandle?
         private let viewModel: CategoriesViewModel

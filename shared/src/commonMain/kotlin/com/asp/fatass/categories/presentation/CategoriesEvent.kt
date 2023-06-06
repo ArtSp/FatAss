@@ -8,6 +8,6 @@ sealed class CategoriesEvent {
     object CloseLanguageDropDown: CategoriesEvent()
     data class ChooseLanguage(val language: UiLanguage): CategoriesEvent()
     data class ChooseSection(val section: CategoryItem): CategoriesEvent()
-
     object LoadContent: CategoriesEvent()
+    object ClearError: CategoriesEvent()
 }

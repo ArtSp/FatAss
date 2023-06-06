@@ -61,6 +61,14 @@ class CategoriesViewModel(
             is CategoriesEvent.LoadContent -> {
                 getSections(state.value)
             }
+
+            is CategoriesEvent.ClearError -> {
+                _state.update {
+                    it.copy(
+                        error = null
+                    )
+                }
+            }
         }
     }
 
