@@ -1,5 +1,15 @@
 
-import SwiftUI
+import MPSwiftUI
+
+extension View {
+    
+    func appModule(
+        _ appModule: AppModule
+    ) -> some View {
+        self.environment(\.appModule, appModule)
+    }
+    
+}
 
 extension EnvironmentValues {
     /// Shows current flow sequence
@@ -12,33 +22,4 @@ extension EnvironmentValues {
 private struct AppModuleKey: EnvironmentKey {
     static let defaultValue: AppModule = AppModuleImpl()
 }
-
-private struct FakeAppModuleModifier: ViewModifier {
-    
-    func body(
-        content: Content
-    ) -> some View {
-        content.appModule(AppModuleFake())
-    }
-}
-
-extension View {
-    
-    func appModule(
-        _ appModule: AppModule
-    ) -> some View {
-        self.environment(\.appModule, appModule)
-    }
-    
-    func preview() -> some View {
-        modifier(FakeAppModuleModifier())
-    }
-    
-    func previewInNavigationView() -> some View {
-        NavigationStack {
-            self
-        }.preview()
-    }
-}
-
 

@@ -23,9 +23,8 @@ actual class UiLanguage(
     }
 
     actual companion object {
-        actual fun byCode(langCode: String): UiLanguage {
+        actual fun byCode(langCode: String): UiLanguage? {
             return allLanguages.find { it.language.langCode == langCode }
-                ?: throw IllegalArgumentException("Invalid or unsupported language code")
         }
 
         actual val allLanguages: List<UiLanguage>
@@ -64,5 +63,8 @@ actual class UiLanguage(
                     }
                 )
             }.sortedBy { it.language.langName }
+
+        actual val localizedLanguages: List<UiLanguage>
+            get() = allLanguages.filter { Language.localizedLanguages.contains(it.language) }
     }
 }

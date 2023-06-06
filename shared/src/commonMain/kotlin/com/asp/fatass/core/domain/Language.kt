@@ -34,9 +34,10 @@ enum class Language(
     UKRAINIAN("uk", "Ukrainian");
 
     companion object {
-        fun byCode(code: String): Language {
+        fun byCode(code: String): Language? {
             return values().find { it.langCode == code }
-                ?: throw IllegalArgumentException("Invalid or unsupported language code")
         }
+
+        val localizedLanguages: List<Language> = listOf(ENGLISH, RUSSIAN)
     }
 }

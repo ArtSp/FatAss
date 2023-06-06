@@ -6,10 +6,8 @@ struct ContentView: View {
     @Environment(\.appModule) var appModule
     
 	var body: some View {
-        NavigationStack {
-            CategoriesScreen(productsUseCase: appModule.productsUseCase)            
-        }
-	}
+        CategoriesScreen(productsUseCase: appModule.productsUseCase)
+    }
 }
 
 // MARK: - Preview
@@ -17,7 +15,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
         ContentView()
-            .preview()
+            .previewInNavigationView()
 	}
 }
 
