@@ -23,7 +23,7 @@ struct CategoriesScreen: View {
             ForEach(categories) { it in
                 Button(action: { viewModel.onEvent(event: .ChooseCategory(category: it)) }) {
                     HStack {
-                        Text(it.name)
+                        Text(it.displayName)
                         Spacer()
                         Image(systemName: "chevron.forward")
                     }

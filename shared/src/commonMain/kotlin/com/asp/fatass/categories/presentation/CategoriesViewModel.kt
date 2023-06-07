@@ -1,11 +1,10 @@
 package com.asp.fatass.categories.presentation
 
-import com.asp.fatass.core.domain.products.ProductsDataSource
-import com.asp.fatass.core.domain.products.ProductsUseCase
-import com.asp.fatass.core.domain.util.Resource
-import com.asp.fatass.core.domain.util.error.AppException
-import com.asp.fatass.core.domain.util.toCommonStateFlow
-import com.asp.fatass.core.presentation.AppViewModel
+import com.asp.fatass._core.domain.products.ProductsUseCase
+import com.asp.fatass._core.domain.util.Resource
+import com.asp.fatass._core.domain.util.error.AppException
+import com.asp.fatass._core.domain.util.flow.toCommonStateFlow
+import com.asp.fatass._core.presentation.AppViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
