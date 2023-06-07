@@ -8,8 +8,7 @@ struct iOSApp: App {
 		WindowGroup {
             NavigationStack {
                 ContentView()
-            }
-                .localized()
+            }.localized()
         }
 	}
 }

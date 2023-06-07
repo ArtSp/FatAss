@@ -13,6 +13,15 @@ class FakeProductsClient: ProductsClient {
     override suspend fun getProducts(
         category: CategoryItem
     ): List<ProductItem> {
-        TODO("Not yet implemented")
+        return (1..20).map {
+            ProductItem(
+                id = it.toLong(),
+                title = "Title $it",
+                description = "Description for $it product",
+                thumbnail = "https://picsum.photos/seed/picsum/200/300",
+                price = 10.0,
+                discountPercentage = null
+            )
+        }
     }
 }

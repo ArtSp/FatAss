@@ -5,6 +5,7 @@ import MPSwiftUI
 struct CategoriesScreen: View {
     
     @ObservedObject var viewModel: ViewModel
+    
     @Environment(\.appModule) private var appModule
     @Environment(\.locale) private var locale
     @Preference(\.bundleLanguage) private var bundleLanguage

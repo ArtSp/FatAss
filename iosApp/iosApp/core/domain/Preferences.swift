@@ -3,6 +3,30 @@ import Foundation
 import MPSwiftUI
 import Combine
 
+// Class for storing all app preferences
+final class Preferences {
+    
+    static let shared = Preferences()
+    private init() {}
+    
+    static func reset() {
+        shared.reset()
+    }
+    
+    private func reset() {
+        // TODO: Reset preferences
+    }
+    
+    /// Sends through the changed key path whenever a change occurs.
+    fileprivate var preferencesChangedSubject = PassthroughSubject<AnyKeyPath, Never>()
+   
+    var bundleLanguage: UiLanguage {
+        get { Bundle.language ?? UiLanguage.companion.localizedLanguages.first! }
+        set { Bundle.setLanguage(newValue) }
+    }
+}
+
+
 /// Preperty wrapper that allows to notify swiftUI about property changes
 @propertyWrapper
 struct Preference<Value>: DynamicProperty {
@@ -73,31 +97,5 @@ struct Preference<Value>: DynamicProperty {
     
     public var projectedValue: Preference<Value> {
         self
-    }
-    
-}
-
-// Class for storing all app preferences
-final class Preferences {
-    
-    static let shared = Preferences()
-    private init() {}
-    
-    static func reset() {
-        shared.reset()
-    }
-    
-    private func reset() {
-    }
-    
-    /// Sends through the changed key path whenever a change occurs.
-    fileprivate var preferencesChangedSubject = PassthroughSubject<AnyKeyPath, Never>()
-    
-    @UserDefault("onboardingCompleted") var onboardingCompleted = false
-    /// Auth store for cases when we logged in but don't want to change authStatus yet.
-   
-    var bundleLanguage: UiLanguage {
-        get { Bundle.language ?? UiLanguage.companion.localizedLanguages.first! }
-        set { Bundle.setLanguage(newValue) }
     }
 }

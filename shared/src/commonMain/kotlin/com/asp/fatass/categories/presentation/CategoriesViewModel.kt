@@ -69,9 +69,11 @@ class CategoriesViewModel(
     ) {
         getSectionsJob?.cancel()
         getSectionsJob = viewModelScope.launch {
-            _state.update { it.copy(
-                isLoading = it.isLoading.plus(CategoriesState.Content.CATEGORIES)
-            ) }
+            _state.update {
+                it.copy(
+                    isLoading = it.isLoading.plus(CategoriesState.Content.CATEGORIES)
+                )
+            }
 
             val result = productsUseCase.getCategories()
 

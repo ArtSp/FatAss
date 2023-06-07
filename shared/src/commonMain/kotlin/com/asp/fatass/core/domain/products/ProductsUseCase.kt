@@ -1,6 +1,7 @@
 package com.asp.fatass.core.domain.products
 
 import com.asp.fatass.core.domain.products.models.CategoryItem
+import com.asp.fatass.core.domain.products.models.ProductItem
 import com.asp.fatass.core.domain.util.Resource
 import com.asp.fatass.core.domain.util.error.AppException
 
@@ -22,9 +23,15 @@ class ProductsUseCase(
     }
 
     suspend fun getProducts(
-        categoryItem: CategoryItem
-    ): Resource<List<CategoryItem>> {
-        TODO("Not yet implemented")
+        category: CategoryItem
+    ): Resource<List<ProductItem>> {
+        return try {
+            val products = client.getProducts(category)
+            Resource.Success(products)
+        } catch(e: AppException) {
+            e.printStackTrace()
+            Resource.Error(e)
+        }
     }
 
 }
