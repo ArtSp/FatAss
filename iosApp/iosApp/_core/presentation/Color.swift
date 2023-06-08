@@ -15,6 +15,6 @@ extension Color {
     static let lightBlue = Color(hex: colors.LightBlue)
     static let lightBlueGrey = Color(hex: colors.LightBlueGrey)
     static let accentViolet = Color(hex: colors.AccentViolet)
-    static let textBlack = Color(hex: colors.TextBlack)
-    static let darkGrey = Color(hex: colors.DarkGrey)
+    static let textBlack = Color(hex: colors.TextBlack).invertedForDarkMode()
+    static let darkGrey = Color(hex: colors.DarkGrey).invertedForDarkMode()
 }

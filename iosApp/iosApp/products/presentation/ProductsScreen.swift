@@ -27,19 +27,29 @@ struct ProductsScreen: View {
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: geo.size.width, alignment: .center)
+//                            .frame(width: geo.size.width, alignment: .center)
                     }
                 }
             }
             
-            Text(product.title).textStyle(.body, color: .textBlack)
+            VStack(alignment: .leading) {
+                Text(product.title)
+                HStack {
+                    Text(product.price.formatted(.currency(code: "usd")))
+                    Unwrap(product.discountPercentage) { discount in
+                        Text("-\(Int(truncating: discount))%")
+                            .foregroundColor(.accentViolet)
+                    }
+                }
+            }
+                .textStyle(.body, color: .textBlack)
                 .padding(5)
                 .background(.thinMaterial)
                 .cornerRadius(6)
                 .padding()
         }
+            .aspectRatio(1, contentMode: .fit)
             .frame(maxWidth: .infinity)
-            .aspectRatio(1, contentMode: .fill)
             .background(Color.lightBlueGrey)
             .cornerRadius(8)
             .shadow(radius: 1)
