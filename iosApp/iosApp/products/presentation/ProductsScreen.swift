@@ -4,7 +4,7 @@ import MPSwiftUI
 
 struct ProductsScreen: View {
     
-    @ObservedObject var viewModel: ViewModel
+    @ObservedObject var viewModel: IOSProductsViewModel
     @Environment(\.appModule) private var appModule
     private let category: CategoryItem
     
@@ -12,7 +12,7 @@ struct ProductsScreen: View {
         category: CategoryItem,
         productsUseCase: ProductsUseCase
     ) {
-       viewModel = ViewModel(productsUseCase: productsUseCase)
+       viewModel = IOSProductsViewModel(productsUseCase: productsUseCase)
        self.category = category
     }
     

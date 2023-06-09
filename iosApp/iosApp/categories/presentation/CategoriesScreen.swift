@@ -4,7 +4,7 @@ import MPSwiftUI
 
 struct CategoriesScreen: View {
     
-    @ObservedObject var viewModel: ViewModel
+    @ObservedObject var viewModel: IOSCategoriesViewModel
     
     @Environment(\.appModule) private var appModule
     @Environment(\.locale) private var locale
@@ -13,7 +13,7 @@ struct CategoriesScreen: View {
     init(
         productsUseCase: ProductsUseCase
     ) {
-        viewModel = ViewModel(productsUseCase: productsUseCase)
+        viewModel = IOSCategoriesViewModel(productsUseCase: productsUseCase)
     }
 
     func categoriesStack(

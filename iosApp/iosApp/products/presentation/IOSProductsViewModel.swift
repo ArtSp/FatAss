@@ -2,7 +2,7 @@
 import Foundation
 
 extension ProductsScreen {
-   class ViewModel: StatefulViewModel {
+   class IOSProductsViewModel: StatefulViewModel {
 
        private var handle: DisposableHandle?
        private let viewModel: ProductsViewModel

@@ -1,4 +1,4 @@
-package com.asp.fatass.di
+package com.asp.fatass._di
 
 import com.asp.fatass._core.domain.products.ProductsUseCase
 
