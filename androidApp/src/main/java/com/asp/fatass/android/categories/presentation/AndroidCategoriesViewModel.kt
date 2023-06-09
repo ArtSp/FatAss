@@ -8,18 +8,18 @@ import com.asp.fatass.categories.presentation.CategoriesViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-@HiltViewModel
-class AndroidCategoriesViewModel @Inject constructor(
-    private val productsUseCase: ProductsUseCase
-): ViewModel() {
-
-    private val viewModel by lazy {
-        CategoriesViewModel(productsUseCase, coroutineScope = viewModelScope)
-    }
-
-    val state = viewModel.state
-
-    fun onEvent(event: CategoriesEvent) {
-        viewModel.onEvent(event)
-    }
-}
+//@HiltViewModel
+//class AndroidCategoriesViewModel @Inject constructor(
+//    private val productsUseCase: ProductsUseCase
+//): ViewModel() {
+//
+//    private val viewModel by lazy {
+//        CategoriesViewModel(productsUseCase, coroutineScope = viewModelScope)
+//    }
+//
+//    val state = viewModel.state
+//
+//    fun onEvent(event: CategoriesEvent) {
+//        viewModel.onEvent(event)
+//    }
+//}

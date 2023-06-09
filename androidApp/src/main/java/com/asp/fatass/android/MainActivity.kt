@@ -24,9 +24,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.asp.fatass.android._core.presentation.Routes
-import com.asp.fatass.android.categories.presentation.AndroidCategoriesViewModel
+//import com.asp.fatass.android.categories.presentation.AndroidCategoriesViewModel
 import com.asp.fatass.android.categories.presentation.CategoriesScreen
-import com.asp.fatass.android.products.presentation.AndroidProductsViewModel
+//import com.asp.fatass.android.products.presentation.AndroidProductsViewModel
 import com.asp.fatass.android.products.presentation.ProductsScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -119,33 +119,33 @@ fun ContentView() {
         navController = navController,
         startDestination = Routes.CATEGORIES
     ) {
-        composable(route = Routes.CATEGORIES) {
-            val viewModel = hiltViewModel<AndroidCategoriesViewModel>()
-            val state by viewModel.state.collectAsState()
+//        composable(route = Routes.CATEGORIES) {
+//            val viewModel = hiltViewModel<AndroidCategoriesViewModel>()
+//            val state by viewModel.state.collectAsState()
+//
+//            CategoriesScreen(
+//                state = state,
+//                onEvent = { viewModel.onEvent(it) }
+//            )
+//        }
 
-            CategoriesScreen(
-                state = state,
-                onEvent = { viewModel.onEvent(it) }
-            )
-        }
-
-        composable(
-            route = Routes.PRODUCTS + "/{category}",
-            arguments = listOf(
-                navArgument("category") {
-                    type = NavType.StringType
-                    defaultValue = "none"
-                }
-            )
-        ) { backStackEntry ->
-            val languageCode = backStackEntry.arguments?.getString("category") ?: "none"
-            val viewModel = hiltViewModel<AndroidProductsViewModel>()
-            val state by viewModel.state.collectAsState()
-
-            ProductsScreen(
-                state = state,
-                onEvent = { viewModel.onEvent(it) }
-            )
-        }
+//        composable(
+//            route = Routes.PRODUCTS + "/{category}",
+//            arguments = listOf(
+//                navArgument("category") {
+//                    type = NavType.StringType
+//                    defaultValue = "none"
+//                }
+//            )
+//        ) { backStackEntry ->
+//            val languageCode = backStackEntry.arguments?.getString("category") ?: "none"
+//            val viewModel = hiltViewModel<AndroidProductsViewModel>()
+//            val state by viewModel.state.collectAsState()
+//
+//            ProductsScreen(
+//                state = state,
+//                onEvent = { viewModel.onEvent(it) }
+//            )
+//        }
     }
 }

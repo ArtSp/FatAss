@@ -9,18 +9,18 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 
-@HiltViewModel
-class AndroidProductsViewModel @Inject constructor(
-    private val productsUseCase: ProductsUseCase
-): ViewModel() {
-
-    private val viewModel by lazy {
-        ProductsViewModel(productsUseCase, coroutineScope = viewModelScope)
-    }
-
-    val state = viewModel.state
-
-    fun onEvent(event: ProductsEvent) {
-        viewModel.onEvent(event)
-    }
-}
+//@HiltViewModel
+//class AndroidProductsViewModel @Inject constructor(
+//    private val productsUseCase: ProductsUseCase
+//): ViewModel() {
+//
+//    private val viewModel by lazy {
+//        ProductsViewModel(productsUseCase, coroutineScope = viewModelScope)
+//    }
+//
+//    val state = viewModel.state
+//
+//    fun onEvent(event: ProductsEvent) {
+//        viewModel.onEvent(event)
+//    }
+//}

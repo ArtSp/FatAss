@@ -16,32 +16,32 @@ import dagger.hilt.components.SingletonComponent
 import io.ktor.client.*
 import javax.inject.Singleton
 
-@Module
-@InstallIn(SingletonComponent::class)
-object AppModuleImpl {
-
-    @Provides
-    @Singleton
-    private fun productsDataSource(
-        app: Application
-    ): ProductsDataSource =
-        SqlDelightProductsDataSource(
-        ProductsDatabase(
-            DatabaseDriverFactory(context = app.applicationContext).createProductsDriver()
-        )
-    )
-
-    @Provides
-    @Singleton
-    private fun productsClient(): ProductsClient = KtorProductsClient(
-        HttpClientFactory().create()
-    )
-
-    @Provides
-    @Singleton
-    fun provideProductsUseCase(
-        app: Application
-    ): ProductsUseCase {
-        return ProductsUseCase(productsClient(), productsDataSource(app = app))
-    }
-}
+//@Module
+//@InstallIn(SingletonComponent::class)
+//object AppModuleImpl {
+//
+//    @Provides
+//    @Singleton
+//    private fun productsDataSource(
+//        app: Application
+//    ): ProductsDataSource =
+//        SqlDelightProductsDataSource(
+//        ProductsDatabase(
+//            DatabaseDriverFactory(context = app.applicationContext).createProductsDriver()
+//        )
+//    )
+//
+//    @Provides
+//    @Singleton
+//    private fun productsClient(): ProductsClient = KtorProductsClient(
+//        HttpClientFactory().create()
+//    )
+//
+//    @Provides
+//    @Singleton
+//    fun provideProductsUseCase(
+//        app: Application
+//    ): ProductsUseCase {
+//        return ProductsUseCase(productsClient(), productsDataSource(app = app))
+//    }
+//}
