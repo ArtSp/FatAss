@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="categories">Categories</string>
+    <string name="error_service_unavailable">Oops, an error happened. Please try again later.</string>
+    <string name="client_error">Oops, an error happened. Please contact the support.</string>
+    <string name="server_error">An error happened. Please try again later.</string>
+    <string name="unknown_error">Oops, an unknown error happened.</string>
 </resources>
